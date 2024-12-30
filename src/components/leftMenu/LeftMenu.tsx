@@ -1,13 +1,14 @@
 import React from "react";
-import ProfileCard from "./ProfileCard";
 import Link from "next/link";
 import Image from "next/image";
-import Ad from "./Ad";
+import ProfileCard from "./ProfileCard";
+import Ad from "../Ad";
 
 export default function LeftMenu({ type }: { type: string }) {
 	return (
 		<div className="flex flex-col gap-6">
 			{type === "home" && <ProfileCard />}
+
 			{/* Left Menu */}
 			<div className="p-4 bg-white shadow-md rounded-lg text-sm flex flex-col text-gray-500 gap-1">
 				<Link

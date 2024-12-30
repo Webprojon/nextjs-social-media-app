@@ -1,9 +1,10 @@
+import { User } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function UserMediaCard({ userId }: { userId: string }) {
-	console.log(userId);
+export default function UserMediaCard({ user }: { user: User }) {
+	console.log(user);
 	return (
 		<div className="p-4 bg-white shadow-md rounded-lg text-sm flex flex-col gap-4">
 			{/* Top */}
