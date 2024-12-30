@@ -7,11 +7,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 
-interface ProfilePageProps {
+export default async function ProfilePage({
+	params,
+}: {
 	params: { username: string };
-}
-
-export default async function ProfilePage({ params }: ProfilePageProps) {
+}) {
 	const { username } = params;
 
 	const user = await prisma.user.findFirst({
