@@ -10,9 +10,9 @@ import React from "react";
 export default async function ProfilePage({
 	params,
 }: {
-	params: { username: string };
-}): Promise<string> {
-	const { username } = params;
+	params: Promise<{ username: string }>;
+}) {
+	const { username } = await params;
 
 	const user = await prisma.user.findFirst({
 		where: {
