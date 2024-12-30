@@ -11,7 +11,7 @@ export default async function ProfilePage({
 	params,
 }: {
 	params: { username: string };
-}) {
+}): Promise<string> {
 	const { username } = params;
 
 	const user = await prisma.user.findFirst({
