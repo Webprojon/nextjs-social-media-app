@@ -97,7 +97,7 @@ export default async function ProfilePage({
 						</div>
 					</div>
 
-					<Feed />
+					<Feed username={user.username} />
 				</div>
 			</div>
 

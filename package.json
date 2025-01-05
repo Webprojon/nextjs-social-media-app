@@ -13,10 +13,13 @@
 		"@clerk/shared": "^2.20.4",
 		"@prisma/client": "^6.1.0",
 		"next": "15.1.2",
+		"next-cloudinary": "^6.16.0",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-icons": "^5.4.0",
 		"svix": "^1.44.0",
-		"swr": "^2.3.0"
+		"swr": "^2.3.0",
+		"zod": "^3.24.1"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
