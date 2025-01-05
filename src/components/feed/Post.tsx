@@ -3,6 +3,8 @@ import React, { Suspense } from "react";
 import Comments from "./Comments";
 import { Post as PostType, User } from "@prisma/client";
 import PostInteraction from "./PostInteraction";
+import PostInfo from "./PostInfo";
+import { auth } from "@clerk/nextjs/server";
 
 type FeedPostType = PostType & { user: User } & {
 	likes: [{ userId: string }];
@@ -10,7 +12,8 @@ type FeedPostType = PostType & { user: User } & {
 	_count: { comments: number };
 };
 
-export default function Post({ post }: { post: FeedPostType }) {
+export default async function Post({ post }: { post: FeedPostType }) {
+	const { userId } = await auth();
 	return (
 		<div className="flex flex-col gap-4">
 			{/* User */}
@@ -29,7 +32,7 @@ export default function Post({ post }: { post: FeedPostType }) {
 							: post.user.username}
 					</span>
 				</div>
-				<Image src="/more.png" alt="img" width={16} height={16} />
+				{userId === post.user.id && <PostInfo postId={post.id} />}
 			</div>
 
 			{/* Description */}

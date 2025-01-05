@@ -14,7 +14,7 @@ const PostInteraction = ({
 	likes: string[];
 	commentNumber: number;
 }) => {
-	const { isLoaded, userId } = useAuth();
+	const { userId } = useAuth();
 	const [likeState, setLikeState] = useState({
 		likeCount: likes.length,
 		isLiked: userId ? likes.includes(userId) : false,
@@ -22,7 +22,8 @@ const PostInteraction = ({
 
 	const [optimisticLike, switchOptimisticLike] = useOptimistic(
 		likeState,
-		(state, value) => {
+		//(state, value) => {
+		(state) => {
 			return {
 				likeCount: state.isLiked ? state.likeCount - 1 : state.likeCount + 1,
 				isLiked: !state.isLiked,
